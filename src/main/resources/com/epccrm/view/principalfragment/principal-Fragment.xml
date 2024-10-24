@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<fragment xmlns="http://jmix.io/schema/flowui/fragment">
+    <data>
+        <instance id="principalDc"
+                  class="com.epccrm.entity.Principal">
+        <fetchPlan extends="_base">
+            <property name="address" fetchPlan="_base"/>
+        </fetchPlan>
+            <collection id="addressDc" property="address"/>
+        </instance>
+    </data>
+    <content>
+        <vbox id="root">
+            <details id="addressDetails" width="100%" height="100%" opened="true">
+                <h3 text="Address"/>
+                <hbox id="buttonsPanel" classNames="buttons-panel">
+                    <button id="createBtn" action="addressesDataGrid.create"/>
+                    <button id="editBtn" action="addressesDataGrid.edit"/>
+                    <button id="removeBtn" action="addressesDataGrid.remove"/>
+                    <select id="selectedAddress" itemsContainer="addressDc"
+                            placeholder="Select Default" minWidth="10em"/>
+                    <!--                                    <simplePagination id="pagination" dataLoader="addressesDl"/>-->
+                </hbox>
+                <dataGrid id="addressesDataGrid"
+                          width="100%"
+                          minHeight="20em"
+                          dataContainer="addressDc"
+                          columnReorderingAllowed="true">
+                    <actions>
+                        <action id="create" type="list_create">
+                            <properties>
+                                <property name="openMode" value="DIALOG"/>
+                            </properties>
+                        </action>
+                        <action id="edit" type="list_edit">
+                            <properties>
+                                <property name="openMode" value="DIALOG"/>
+                            </properties>
+                        </action>
+                        <action id="remove" type="list_remove"/>
+                    </actions>
+                    <columns resizable="true">
+                        <column property="address1"/>
+                        <column property="address2"/>
+                        <column property="address3"/>
+                        <column property="address4"/>
+                        <column property="isDefaultTrue"/>
+                        <column property="postcode"/>
+                        <column property="telephone"/>
+                        <column property="fax"/>
+                    </columns>
+                </dataGrid>
+            </details>
+        </vbox>
+    </content>
+</fragment>

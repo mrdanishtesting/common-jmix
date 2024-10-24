@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<view xmlns="http://jmix.io/schema/flowui/view"
+      title="msg://contactDetailView.title"
+      focusComponent="form">
+    <data>
+
+
+        <instance id="contactDc_1" class="com.epccrm.entity.Contact">
+            <loader id="contactDl_1"/>
+            <fetchPlan extends="_base">
+                <property name="title" fetchPlan="_base"/>
+            </fetchPlan>
+        </instance>
+        <collection id="enumValuesTitleDc" class="com.epccrm.entity.EnumValue">
+            <loader id="enumValuesTitleDl">
+                <query>
+                    <![CDATA[select e from EnumValue e
+                    order by e.name asc]]>
+                    <condition>
+                        <and>
+                            <jpql>
+                                <where>
+                                    <![CDATA[e.entityType = 'Contact' AND e.fieldType = 'title']]></where>
+                            </jpql>
+                        </and>
+                    </condition>
+                </query>
+            </loader>
+            <fetchPlan extends="_base"/>
+        </collection>
+        <instance id="contactDc"
+                  class="com.epccrm.entity.Contact">
+            <fetchPlan extends="_base"/>
+            <loader id="contactDl"/>
+        </instance>
+    </data>
+    <facets>
+        <dataLoadCoordinator auto="true"/>
+    </facets>
+    <actions>
+        <action id="saveAction" type="detail_saveClose"/>
+        <action id="closeAction" type="detail_close"/>
+    </actions>
+    <layout>
+        <formLayout id="form" dataContainer="contactDc" width="20em" height="35em">
+            <entityComboBox id="titleField" property="title" itemsContainer="enumValuesTitleDc" label="Title" placeholder="Please Select"/>
+            <textField id="firstNameField" property="firstName" label="First Name"/>
+            <textField id="lastNameField" property="lastName" label="Last Name"/>
+            <textField id="departmentField" property="department" label ="Department"/>
+            <textField id="telephoneField" property="telephone"/>
+            <textField id="emailField" property="email"/>
+            <textField id="jobTitleField" property="jobTitle" label="Job Title"/>
+        </formLayout>
+        <hbox id="detailActions">
+            <button id="saveAndCloseBtn" action="saveAction"/>
+            <button id="closeBtn" action="closeAction"/>
+        </hbox>
+    </layout>
+</view>

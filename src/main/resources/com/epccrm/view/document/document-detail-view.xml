@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<view xmlns="http://jmix.io/schema/flowui/view"
+      title="msg://documentDetailView.title"
+      focusComponent="form">
+    <data>
+        <instance id="documentDc"
+                  class="com.epccrm.entity.Document">
+            <fetchPlan extends="_base"/>
+            <loader id="documentDl"/>
+        </instance>
+    </data>
+    <facets>
+        <dataLoadCoordinator auto="true"/>
+    </facets>
+    <actions>
+        <action id="saveAction" type="detail_saveClose"/>
+        <action id="closeAction" type="detail_close"/>
+    </actions>
+    <layout>
+        <formLayout id="form" dataContainer="documentDc">
+            <fileStorageUploadField id="manuallyControlledField" label="Document"
+                                    dataContainer="documentDc" property="file"
+                                    fileNameVisible="true"
+                                    fileNotSelectedText=" "
+                                    dropAllowed="true"
+                                    maxFileSize="5242880"
+                                    fileStoragePutMode="MANUAL"
+                                        fileStorageName="/home/arishi12/danish/files"
+                                    acceptedFileTypes="image/png, .png,.pdf,.jpeg"
+                                    uploadIcon="UPLOAD"
+                                    uploadText=""/>
+        </formLayout>
+        <hbox id="detailActions">
+            <button id="saveAndCloseBtn" action="saveAction"/>
+            <button id="closeBtn" action="closeAction"/>
+        </hbox>
+    </layout>
+</view>

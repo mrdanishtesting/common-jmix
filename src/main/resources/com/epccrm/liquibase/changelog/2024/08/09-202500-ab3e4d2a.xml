@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd"
+        objectQuotingStrategy="QUOTE_ONLY_RESERVED_WORDS">
+    <changeSet id="1" author="epc-crm">
+        <addColumn tableName="PRINCIPAL">
+            <column name="EXPORTED_ID" type="UUID"/>
+        </addColumn>
+    </changeSet>
+    <changeSet id="2" author="epc-crm">
+        <addForeignKeyConstraint baseColumnNames="EXPORTED_ID" baseTableName="PRINCIPAL"
+                                 constraintName="FK_PRINCIPAL_ON_EXPORTED" referencedColumnNames="ID"
+                                 referencedTableName="ENUM_VALUE"/>
+    </changeSet>
+    <changeSet id="3" author="epc-crm">
+        <dropColumn columnName="exxported_id" tableName="principal"/>
+    </changeSet>
+</databaseChangeLog>

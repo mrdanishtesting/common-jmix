@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<view xmlns="http://jmix.io/schema/flowui/view"
+      xmlns:c="http://jmix.io/schema/flowui/jpql-condition"
+      title="msg://principalListView.title"
+      focusComponent="principalsDataGrid">
+    <data>
+        <collection id="principalsDc"
+                    class="com.epccrm.entity.Principal">
+            <fetchPlan extends="_base">
+                <property name="type" fetchPlan="_base"/>
+                <property name="collectAccess" fetchPlan="_base"/>
+                <property name="defaultNominal" fetchPlan="_base"/>
+                <property name="vatStatus" fetchPlan="_base"/>
+                <property name="generateAlerts" fetchPlan="_base"/>
+                <property name="exported" fetchPlan="_base"/>
+                <property name="active" fetchPlan="_base"/>
+                <property name="invoiceType" fetchPlan="_base"/>
+                <property name="mandateRequired" fetchPlan="_base"/>
+            </fetchPlan>
+            <loader id="principalsDl" readOnly="true">
+                <query>
+                    <![CDATA[select e from Principal e]]>
+                </query>
+            </loader>
+        </collection>
+    </data>
+    <facets>
+        <dataLoadCoordinator auto="true"/>
+        <urlQueryParameters>
+            <genericFilter component="genericFilter"/>
+            <pagination component="pagination"/>
+        </urlQueryParameters>
+    </facets>
+    <actions>
+        <action id="selectAction" type="lookup_select"/>
+        <action id="discardAction" type="lookup_discard"/>
+    </actions>
+    <layout>
+        <genericFilter id="genericFilter"
+                       dataLoader="principalsDl">
+            <properties include=".*"/>
+        </genericFilter>
+        <hbox id="buttonsPanel" classNames="buttons-panel">
+            <button id="createBtn" action="principalsDataGrid.create"/>
+            <button id="editBtn" action="principalsDataGrid.edit"/>
+            <button id="removeBtn" action="principalsDataGrid.remove"/>
+            <simplePagination id="pagination" dataLoader="principalsDl"/>
+        </hbox>
+        <dataGrid id="principalsDataGrid"
+                  width="100%"
+                  minHeight="20em"
+                  dataContainer="principalsDc"
+                  columnReorderingAllowed="true" multiSort="true" multiSortPriority="APPEND">
+            <actions>
+                <action id="create" type="list_create"/>
+                <action id="edit" type="list_edit"/>
+                <action id="remove" type="list_remove"/>
+            </actions>
+            <columns resizable="true">
+                <column key="picture" sortable="false" flexGrow="0" resizable="false"/>
+                <column property="name"/>
+                <column property="email"/>
+                <column property="web"/>
+                <column property="principalRef"/>
+
+            </columns>
+        </dataGrid>
+        <hbox id="lookupActions" visible="false">
+            <button id="selectBtn" action="selectAction"/>
+            <button id="discardBtn" action="discardAction"/>
+        </hbox>
+    </layout>
+</view>

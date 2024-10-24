@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<menu-config xmlns="http://jmix.io/schema/flowui/menu">
+    <menu id="application" title="msg://com.epccrm/menu.application.title" opened="true">
+        <item view="User.list" title="msg://com.epccrm.view.user/UserListView.title"/>
+        <item view="EnumValue.list" title="msg://com.epccrm.view.enumvalue/enumValueListView.title"/>
+<!--        <item view="MarketingNote.list"-->
+<!--              title="msg://com.epccrm.view.marketingnote/marketingNoteListView.title"/>-->
+        <!--        <item view="Document.list" title="msg://com.epccrm.view.document/documentListView.title"/>-->
+        <!--        <item view="Address.list" title="msg://com.epccrm.view.address/addressListView.title"/>-->
+<!--        <item view="Contact.list" title="msg://com.epccrm.view.contact/contactListView.title"/>-->
+
+    </menu>
+    <menu id="partner" title="msg://com.epccrm/menu.partner.title" opened="false">
+        <item view="Principal.list" title="msg://com.epccrm.view.principal/principalListView.title" icon="vaadin:key"/>
+<!--        <item bean="MenuBean" beanMethod="browseDetail" view="Principal.detail" title="msg://com.epccrm.view.principal/principalListView.title"/>-->
+    </menu>
+</menu-config>

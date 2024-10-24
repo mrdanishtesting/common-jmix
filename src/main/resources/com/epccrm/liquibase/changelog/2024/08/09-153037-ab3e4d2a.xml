@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd"
+        objectQuotingStrategy="QUOTE_ONLY_RESERVED_WORDS">
+    <changeSet id="1" author="epc-crm">
+        <createTable tableName="ADDRESS">
+            <column name="ID" type="UUID">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_ADDRESS"/>
+            </column>
+            <column defaultValueBoolean="false" name="IS_DEFAULT_TRUE" type="BOOLEAN"/>
+            <column name="ADDRESS1" type="VARCHAR(255)"/>
+            <column name="ADDRESS2" type="VARCHAR(255)"/>
+            <column name="ADDRESS3" type="VARCHAR(255)"/>
+            <column name="ADDRESS4" type="VARCHAR(255)"/>
+            <column name="POSTCODE" type="VARCHAR(255)"/>
+            <column name="TELEPHONE" type="VARCHAR(255)"/>
+            <column name="FAX" type="VARCHAR(255)"/>
+            <column name="VERSION" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="CREATED_BY" type="VARCHAR(255)"/>
+            <column name="CREATED_DATE" type="${offsetDateTime.type}"/>
+            <column name="LAST_MODIFIED_BY" type="VARCHAR(255)"/>
+            <column name="LAST_MODIFIED_DATE" type="${offsetDateTime.type}"/>
+            <column name="DELETED_BY" type="VARCHAR(255)"/>
+            <column name="DELETED_DATE" type="${offsetDateTime.type}"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="2" author="epc-crm">
+        <createTable tableName="CONTACT">
+            <column name="ID" type="UUID">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_CONTACT"/>
+            </column>
+            <column name="JOB_TITLE" type="VARCHAR(255)"/>
+            <column name="DEPARTMENT" type="VARCHAR(255)"/>
+            <column name="TELEPHONE" type="VARCHAR(255)"/>
+            <column name="EMAIL" type="VARCHAR(255)"/>
+            <column name="TITLE_ID" type="UUID"/>
+            <column name="FIRST_NAME" type="VARCHAR(255)"/>
+            <column defaultValueBoolean="false" name="IS_DEFAULT_TRUE" type="BOOLEAN"/>
+            <column name="LAST_NAME" type="VARCHAR(255)"/>
+            <column name="PRINCIPAL_ID" type="UUID"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="3" author="epc-crm">
+        <createTable tableName="DOCUMENT">
+            <column name="ID" type="UUID">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_DOCUMENT"/>
+            </column>
+            <column name="FILE_REF" type="CLOB"/>
+            <column name="VERSION" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="CREATED_BY" type="VARCHAR(255)"/>
+            <column name="CREATED_DATE" type="${offsetDateTime.type}"/>
+            <column name="LAST_MODIFIED_BY" type="VARCHAR(255)"/>
+            <column name="LAST_MODIFIED_DATE" type="${offsetDateTime.type}"/>
+            <column name="DELETED_BY" type="VARCHAR(255)"/>
+            <column name="DELETED_DATE" type="${offsetDateTime.type}"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="4" author="epc-crm">
+        <createTable tableName="ENUM_VALUE">
+            <column name="ID" type="UUID">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_ENUM_VALUE"/>
+            </column>
+            <column name="ENTITY_TYPE" type="VARCHAR(255)"/>
+            <column name="NAME" type="VARCHAR(255)"/>
+            <column name="FIELD_TYPE" type="VARCHAR(255)"/>
+            <column name="VERSION" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="CREATED_BY" type="VARCHAR(255)"/>
+            <column name="CREATED_DATE" type="${offsetDateTime.type}"/>
+            <column name="LAST_MODIFIED_BY" type="VARCHAR(255)"/>
+            <column name="LAST_MODIFIED_DATE" type="${offsetDateTime.type}"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="5" author="epc-crm">
+        <createTable tableName="MARKETING_NOTE">
+            <column name="ID" type="UUID">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_MARKETING_NOTE"/>
+            </column>
+            <column name="TITLE" type="VARCHAR(255)"/>
+            <column name="NOTES" type="CLOB"/>
+            <column name="VERSION" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="CREATED_BY" type="VARCHAR(255)"/>
+            <column name="CREATED_DATE" type="${offsetDateTime.type}"/>
+            <column name="LAST_MODIFIED_BY" type="VARCHAR(255)"/>
+            <column name="LAST_MODIFIED_DATE" type="${offsetDateTime.type}"/>
+            <column name="DELETED_BY" type="VARCHAR(255)"/>
+            <column name="DELETED_DATE" type="${offsetDateTime.type}"/>
+            <column name="PRINCIPAL_ID" type="UUID"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="6" author="epc-crm">
+        <createTable tableName="PRINCIPAL">
+            <column name="ID" type="UUID">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_PRINCIPAL"/>
+            </column>
+            <column name="NAME" type="VARCHAR(255)"/>
+            <column name="EMAIL" type="VARCHAR(255)"/>
+            <column name="ACTIVE_ID" type="UUID"/>
+            <column name="INVOICE_TYPE_ID" type="UUID"/>
+            <column name="MANDATE_REQUIRED_ID" type="UUID"/>
+            <column name="HIERARCHY" type="VARCHAR(255)"/>
+            <column name="DELEGATED_AUTHORITY" type="VARCHAR(255)"/>
+            <column name="REPUTATION_FEE" type="VARCHAR(255)"/>
+            <column name="GENERATE_ALERTS_ID" type="UUID"/>
+            <column name="PRINCIPAL_REF" type="VARCHAR(255)"/>
+            <column name="EXXPORTED_ID" type="UUID"/>
+            <column name="VAT_STATUS_ID" type="UUID"/>
+            <column name="OWNER" type="VARCHAR(255)"/>
+            <column name="WEB" type="VARCHAR(255)"/>
+            <column name="TYPE_ID" type="UUID"/>
+            <column name="COLLECT_ACCESS_ID" type="UUID"/>
+            <column name="DEFAULT_NOMINAL_ID" type="UUID"/>
+            <column name="CREATED_BY" type="VARCHAR(255)"/>
+            <column name="CREATED_DATE" type="${offsetDateTime.type}"/>
+            <column name="VERSION" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="LAST_MODIFIED_BY" type="VARCHAR(255)"/>
+            <column name="LAST_MODIFIED_DATE" type="${offsetDateTime.type}"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="7" author="epc-crm">
+        <createTable tableName="PRINCIPAL_ADDRESS_LINK">
+            <column name="ADDRESS_ID" type="UUID">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_PRINCIPAL_ADDRESS_LINK"/>
+            </column>
+            <column name="PRINCIPAL_ID" type="UUID">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_PRINCIPAL_ADDRESS_LINK"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet id="8" author="epc-crm">
+        <createTable tableName="PRINCIPAL_DOCUMENT_LINK">
+            <column name="DOCUMENT_ID" type="UUID">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_PRINCIPAL_DOCUMENT_LINK"/>
+            </column>
+            <column name="PRINCIPAL_ID" type="UUID">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_PRINCIPAL_DOCUMENT_LINK"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet id="9" author="epc-crm">
+        <createIndex indexName="IDX_CONTACT_PRINCIPAL" tableName="CONTACT">
+            <column name="PRINCIPAL_ID"/>
+        </createIndex>
+
+        <addForeignKeyConstraint baseColumnNames="PRINCIPAL_ID" baseTableName="CONTACT"
+                                 constraintName="FK_CONTACT_ON_PRINCIPAL" onDelete="CASCADE" referencedColumnNames="ID"
+                                 referencedTableName="PRINCIPAL"/>
+    </changeSet>
+    <changeSet id="10" author="epc-crm">
+        <createIndex indexName="IDX_MARKETING_NOTE_PRINCIPAL" tableName="MARKETING_NOTE">
+            <column name="PRINCIPAL_ID"/>
+        </createIndex>
+
+        <addForeignKeyConstraint baseColumnNames="PRINCIPAL_ID" baseTableName="MARKETING_NOTE"
+                                 constraintName="FK_MARKETING_NOTE_ON_PRINCIPAL" referencedColumnNames="ID"
+                                 referencedTableName="PRINCIPAL"/>
+    </changeSet>
+    <changeSet id="11" author="epc-crm">
+        <createIndex indexName="IDX_PRINCIPAL_ACTIVE" tableName="PRINCIPAL">
+            <column name="ACTIVE_ID"/>
+        </createIndex>
+
+        <addForeignKeyConstraint baseColumnNames="ACTIVE_ID" baseTableName="PRINCIPAL"
+                                 constraintName="FK_PRINCIPAL_ON_ACTIVE" referencedColumnNames="ID"
+                                 referencedTableName="ENUM_VALUE"/>
+    </changeSet>
+    <changeSet id="12" author="epc-crm">
+        <createIndex indexName="IDX_PRINCIPAL_COLLECT_ACCESS" tableName="PRINCIPAL">
+            <column name="COLLECT_ACCESS_ID"/>
+        </createIndex>
+
+        <addForeignKeyConstraint baseColumnNames="COLLECT_ACCESS_ID" baseTableName="PRINCIPAL"
+                                 constraintName="FK_PRINCIPAL_ON_COLLECT_ACCESS" referencedColumnNames="ID"
+                                 referencedTableName="ENUM_VALUE"/>
+    </changeSet>
+    <changeSet id="13" author="epc-crm">
+        <createIndex indexName="IDX_PRINCIPAL_DEFAULT_NOMINAL" tableName="PRINCIPAL">
+            <column name="DEFAULT_NOMINAL_ID"/>
+        </createIndex>
+
+        <addForeignKeyConstraint baseColumnNames="DEFAULT_NOMINAL_ID" baseTableName="PRINCIPAL"
+                                 constraintName="FK_PRINCIPAL_ON_DEFAULT_NOMINAL" referencedColumnNames="ID"
+                                 referencedTableName="ENUM_VALUE"/>
+    </changeSet>
+    <changeSet id="14" author="epc-crm">
+        <createIndex indexName="IDX_PRINCIPAL_GENERATE_ALERTS" tableName="PRINCIPAL">
+            <column name="GENERATE_ALERTS_ID"/>
+        </createIndex>
+
+        <addForeignKeyConstraint baseColumnNames="GENERATE_ALERTS_ID" baseTableName="PRINCIPAL"
+                                 constraintName="FK_PRINCIPAL_ON_GENERATE_ALERTS" referencedColumnNames="ID"
+                                 referencedTableName="ENUM_VALUE"/>
+    </changeSet>
+    <changeSet id="15" author="epc-crm">
+        <createIndex indexName="IDX_PRINCIPAL_INVOICE_TYPE" tableName="PRINCIPAL">
+            <column name="INVOICE_TYPE_ID"/>
+        </createIndex>
+
+        <addForeignKeyConstraint baseColumnNames="INVOICE_TYPE_ID" baseTableName="PRINCIPAL"
+                                 constraintName="FK_PRINCIPAL_ON_INVOICE_TYPE" referencedColumnNames="ID"
+                                 referencedTableName="ENUM_VALUE"/>
+    </changeSet>
+    <changeSet id="16" author="epc-crm">
+        <createIndex indexName="IDX_PRINCIPAL_MANDATE_REQUIRED" tableName="PRINCIPAL">
+            <column name="MANDATE_REQUIRED_ID"/>
+        </createIndex>
+
+        <addForeignKeyConstraint baseColumnNames="MANDATE_REQUIRED_ID" baseTableName="PRINCIPAL"
+                                 constraintName="FK_PRINCIPAL_ON_MANDATE_REQUIRED" referencedColumnNames="ID"
+                                 referencedTableName="ENUM_VALUE"/>
+    </changeSet>
+    <changeSet id="17" author="epc-crm">
+        <createIndex indexName="IDX_PRINCIPAL_TYPE" tableName="PRINCIPAL">
+            <column name="TYPE_ID"/>
+        </createIndex>
+
+        <addForeignKeyConstraint baseColumnNames="TYPE_ID" baseTableName="PRINCIPAL"
+                                 constraintName="FK_PRINCIPAL_ON_TYPE" referencedColumnNames="ID"
+                                 referencedTableName="ENUM_VALUE"/>
+    </changeSet>
+    <changeSet id="18" author="epc-crm">
+        <createIndex indexName="IDX_PRINCIPAL_VAT_STATUS" tableName="PRINCIPAL">
+            <column name="VAT_STATUS_ID"/>
+        </createIndex>
+
+        <addForeignKeyConstraint baseColumnNames="VAT_STATUS_ID" baseTableName="PRINCIPAL"
+                                 constraintName="FK_PRINCIPAL_ON_VAT_STATUS" referencedColumnNames="ID"
+                                 referencedTableName="ENUM_VALUE"/>
+    </changeSet>
+    <changeSet id="19" author="epc-crm">
+        <addForeignKeyConstraint baseColumnNames="TITLE_ID" baseTableName="CONTACT" constraintName="FK_CONTACT_ON_TITLE"
+                                 referencedColumnNames="ID" referencedTableName="ENUM_VALUE"/>
+    </changeSet>
+    <changeSet id="20" author="epc-crm">
+        <addForeignKeyConstraint baseColumnNames="ADDRESS_ID" baseTableName="PRINCIPAL_ADDRESS_LINK"
+                                 constraintName="FK_PRIADD_ON_ADDRESS" referencedColumnNames="ID"
+                                 referencedTableName="ADDRESS"/>
+    </changeSet>
+    <changeSet id="21" author="epc-crm">
+        <addForeignKeyConstraint baseColumnNames="PRINCIPAL_ID" baseTableName="PRINCIPAL_ADDRESS_LINK"
+                                 constraintName="FK_PRIADD_ON_PRINCIPAL" referencedColumnNames="ID"
+                                 referencedTableName="PRINCIPAL"/>
+    </changeSet>
+    <changeSet id="22" author="epc-crm">
+        <addForeignKeyConstraint baseColumnNames="DOCUMENT_ID" baseTableName="PRINCIPAL_DOCUMENT_LINK"
+                                 constraintName="FK_PRIDOC_ON_DOCUMENT" referencedColumnNames="ID"
+                                 referencedTableName="DOCUMENT"/>
+    </changeSet>
+    <changeSet id="23" author="epc-crm">
+        <addForeignKeyConstraint baseColumnNames="PRINCIPAL_ID" baseTableName="PRINCIPAL_DOCUMENT_LINK"
+                                 constraintName="FK_PRIDOC_ON_PRINCIPAL" referencedColumnNames="ID"
+                                 referencedTableName="PRINCIPAL"/>
+    </changeSet>
+    <changeSet id="24" author="epc-crm">
+        <addForeignKeyConstraint baseColumnNames="EXXPORTED_ID" baseTableName="PRINCIPAL"
+                                 constraintName="FK_PRINCIPAL_ON_EXXPORTED" referencedColumnNames="ID"
+                                 referencedTableName="ENUM_VALUE"/>
+    </changeSet>
+</databaseChangeLog>

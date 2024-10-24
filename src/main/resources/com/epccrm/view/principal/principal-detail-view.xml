@@ -1,0 +1,417 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<view xmlns="http://jmix.io/schema/flowui/view"
+      title="msg://principalDetailView.title"
+      focusComponent="form">
+    <data>
+        <instance id="principalDc"
+                  class="com.epccrm.entity.Principal">
+            <fetchPlan extends="_base">
+                <property name="type" fetchPlan="_base"/>
+                <property name="collectAccess" fetchPlan="_base"/>
+                <property name="defaultNominal" fetchPlan="_base"/>
+                <property name="address" fetchPlan="_base"/>
+                <property name="contact" fetchPlan="_base"/>
+                <property name="document" fetchPlan="_base"/>
+                <property name="marketingNotes" fetchPlan="_base"/>
+                <property name="vatStatus" fetchPlan="_base"/>
+                <property name="generateAlerts" fetchPlan="_base"/>
+                <property name="exported" fetchPlan="_base"/>
+                <property name="active" fetchPlan="_base"/>
+                <property name="invoiceType" fetchPlan="_base"/>
+                <property name="mandateRequired" fetchPlan="_base"/>
+            </fetchPlan>
+            <loader id="principalDl"/>
+            <collection id="addressDc" property="address"/>
+            <collection id="contactDc" property="contact"/>
+            <collection id="documentDc" property="document"/>
+            <collection id="marketingNotesDc" property="marketingNotes"/>
+        </instance>
+        <collection id="enumValuesTypeDc" class="com.epccrm.entity.EnumValue">
+            <loader id="enumValuesDl">
+                <query>
+                    <![CDATA[select e from EnumValue e
+                    order by e.name asc]]>
+                    <condition>
+                        <and>
+                            <jpql>
+                                <where>
+                                    <![CDATA[e.entityType = 'Principal' AND e.fieldType = 'type']]></where>
+                            </jpql>
+                        </and>
+                    </condition>
+                </query>
+            </loader>
+            <fetchPlan extends="_base"/>
+        </collection>
+        <collection id="enumValuesDefaultDc" class="com.epccrm.entity.EnumValue">
+            <loader id="enumValuesDefaultDl">
+                <query>
+                    <![CDATA[select e from EnumValue e
+                    order by e.name asc]]>
+                    <condition>
+                        <and>
+                            <jpql>
+                                <where>
+                                    <![CDATA[e.entityType = 'Principal' AND e.fieldType = 'defaultNominal']]></where>
+                            </jpql>
+                        </and>
+                    </condition>
+                </query>
+            </loader>
+            <fetchPlan extends="_base"/>
+        </collection>
+        <collection id="enumValuesCollectDc" class="com.epccrm.entity.EnumValue">
+            <loader id="enumValuesCollectDl">
+                <query>
+                    <![CDATA[select e from EnumValue e
+                    order by e.name asc]]>
+                    <condition>
+                        <and>
+                            <jpql>
+                                <where>
+                                    <![CDATA[e.entityType = 'Principal' AND e.fieldType = 'collectAccess']]></where>
+                            </jpql>
+                        </and>
+                    </condition>
+                </query>
+            </loader>
+            <fetchPlan extends="_base"/>
+        </collection>
+        <collection id="enumValuesVatStatusDc" class="com.epccrm.entity.EnumValue">
+            <loader id="enumValuesVatStatusDl">
+                <query>
+                    <![CDATA[select e from EnumValue e
+                    order by e.name asc]]>
+                    <condition>
+                        <and>
+                            <jpql>
+                                <where>
+                                    <![CDATA[e.entityType = 'Principal' AND e.fieldType = 'vatStatus']]></where>
+                            </jpql>
+                        </and>
+                    </condition>
+                </query>
+            </loader>
+            <fetchPlan extends="_base"/>
+        </collection>
+        <collection id="enumValuesGenerateAlertsDc" class="com.epccrm.entity.EnumValue">
+            <loader id="enumValuesGenerateAlertsDl">
+                <query>
+                    <![CDATA[select e from EnumValue e
+                    order by e.name asc]]>
+                    <condition>
+                        <and>
+                            <jpql>
+                                <where>
+                                    <![CDATA[e.entityType = 'Principal' AND e.fieldType = 'generateAlerts']]></where>
+                            </jpql>
+                        </and>
+                    </condition>
+                </query>
+            </loader>
+            <fetchPlan extends="_base"/>
+        </collection>
+        <collection id="enumValuesExportedDc" class="com.epccrm.entity.EnumValue">
+            <loader id="enumValuesExportedDl">
+                <query>
+                    <![CDATA[select e from EnumValue e
+                    order by e.name asc]]>
+                    <condition>
+                        <and>
+                            <jpql>
+                                <where>
+                                    <![CDATA[e.entityType = 'Principal' AND e.fieldType = 'exported']]></where>
+                            </jpql>
+                        </and>
+                    </condition>
+                </query>
+            </loader>
+            <fetchPlan extends="_base"/>
+        </collection>
+        <collection id="enumValuesActiveDc" class="com.epccrm.entity.EnumValue">
+            <loader id="enumValuesActiveDl">
+                <query>
+                    <![CDATA[select e from EnumValue e
+                    order by e.name asc]]>
+                    <condition>
+                        <and>
+                            <jpql>
+                                <where>
+                                    <![CDATA[e.entityType = 'Principal' AND e.fieldType = 'active']]></where>
+                            </jpql>
+                        </and>
+                    </condition>
+                </query>
+            </loader>
+            <fetchPlan extends="_base"/>
+        </collection>
+        <collection id="enumValuesInvoiceTypeDc" class="com.epccrm.entity.EnumValue">
+            <loader id="enumValuesInvoiceTypeDl">
+                <query>
+                    <![CDATA[select e from EnumValue e
+                    order by e.name asc]]>
+                    <condition>
+                        <and>
+                            <jpql>
+                                <where>
+                                    <![CDATA[e.entityType = 'Principal' AND e.fieldType = 'invoiceType']]></where>
+                            </jpql>
+                        </and>
+                    </condition>
+                </query>
+            </loader>
+            <fetchPlan extends="_base"/>
+        </collection>
+        <collection id="enumValuesMandateRequiredDc" class="com.epccrm.entity.EnumValue">
+            <loader id="enumValuesMandateRequiredDl">
+                <query>
+                    <![CDATA[select e from EnumValue e
+                    order by e.name asc]]>
+                    <condition>
+                        <and>
+                            <jpql>
+                                <where>
+                                    <![CDATA[e.entityType = 'Principal' AND e.fieldType = 'mandateRequired']]></where>
+                            </jpql>
+                        </and>
+                    </condition>
+                </query>
+            </loader>
+            <fetchPlan extends="_base"/>
+        </collection>
+    </data>
+    <facets>
+        <dataLoadCoordinator auto="true"/>
+    </facets>
+    <actions>
+        <action id="saveAction" type="detail_saveClose"/>
+        <action id="closeAction" type="detail_close"/>
+    </actions>
+    <layout>
+        <tabSheet id="tabs" width="100%">
+            <tab id="mainTab" label="Main">
+                <vbox themeNames="spacing-xs" justifyContent="CENTER">
+                    <formLayout id="form" dataContainer="principalDc">
+                        <textField id="nameField" property="name" required="true"/>
+                        <textField id="emailField" property="email"/>
+                        <textField id="webField" property="web"/>
+                        <entityComboBox id="typeField" property="type" itemsContainer="enumValuesTypeDc"
+                                        allowCustomValue="true">
+                        </entityComboBox>
+                        <entityComboBox id="collectAccessField" property="collectAccess"
+                                        itemsContainer="enumValuesCollectDc"/>
+                        <textField id="sorField" property="sor"/>
+                        <entityComboBox id="defaultNominalField" property="defaultNominal"
+                                        itemsContainer="enumValuesDefaultDc"/>
+                        <entityComboBox id="vatStatusField" property="vatStatus" label="VAT Status"
+                                        itemsContainer="enumValuesVatStatusDc"/>
+                        <textField id="ownerField" property="owner"/>
+                        <entityComboBox id="generateAlertsField" property="generateAlerts" label="Generate Alerts"
+                                        itemsContainer="enumValuesGenerateAlertsDc" placeholder="Please Select"/>
+                        <entityComboBox id="exportedField" property="exported" label="Exported"
+                                        itemsContainer="enumValuesExportedDc"/>
+                        <entityComboBox id="activeField" property="active" itemsContainer="enumValuesActiveDc"
+                                        placeholder="Please Select"/>
+                        <entityComboBox id="invoiceTypeField" property="invoiceType" label="Invoice Type"
+                                        itemsContainer="enumValuesInvoiceTypeDc"/>
+                        <entityComboBox id="mandateRequiredField" property="mandateRequired" label="Mandate Required"
+                                        itemsContainer="enumValuesMandateRequiredDc" placeholder="Please Select"/>
+                        <details summaryText="Picture">
+                            <hbox>
+                                <fileStorageUploadField id="logoField" property="logo" dataContainer="principalDc"
+                                                        fileNameVisible="false"/>
+                                <image id="image" property="logo" dataContainer="principalDc" height="10em" width="10em"
+                                       classNames="logo-picture"/>
+                            </hbox>
+                        </details>
+
+                    </formLayout>
+                    <details id="addressDetails" width="100%" height="100%" opened="true">
+                        <h3 text="Address"/>
+                        <hbox id="buttonsPanel" classNames="buttons-panel">
+                            <button id="createBtn" action="addressesDataGrid.create"/>
+                            <button id="editBtn" action="addressesDataGrid.edit"/>
+                            <button id="removeBtn" action="addressesDataGrid.remove"/>
+                            <select id="selectedAddress" itemsContainer="addressDc"
+                                    placeholder="Select Default" minWidth="10em"/>
+                            <!--                                    <simplePagination id="pagination" dataLoader="addressesDl"/>-->
+                        </hbox>
+                        <dataGrid id="addressesDataGrid"
+                                  width="100%"
+                                  minHeight="20em"
+                                  dataContainer="addressDc"
+                                  columnReorderingAllowed="true">
+                            <actions>
+                                <action id="create" type="list_create">
+                                    <properties>
+                                        <property name="openMode" value="DIALOG"/>
+                                    </properties>
+                                </action>
+                                <action id="edit" type="list_edit">
+                                    <properties>
+                                        <property name="openMode" value="DIALOG"/>
+                                    </properties>
+                                </action>
+                                <action id="remove" type="list_remove"/>
+                            </actions>
+                            <columns resizable="true">
+                                <column property="address1"/>
+                                <column property="address2"/>
+                                <column property="address3"/>
+                                <column property="address4"/>
+                                <column property="isDefaultTrue"/>
+                                <column property="postcode"/>
+                                <column property="telephone"/>
+                                <column property="fax"/>
+                            </columns>
+                        </dataGrid>
+                    </details>
+                </vbox>
+            </tab>
+            <tab id="addressTab" label="Address">
+                <vbox id="addressVerticalDetails">
+                    <hbox classNames="buttons-panel">
+                        <button id="createBtnAddress" action="addressesDataGrid2.create"/>
+                        <button id="editBtnAddress" action="addressesDataGrid2.edit"/>
+                        <button id="removeBtnAddress" action="addressesDataGrid2.remove"/>
+                        <select id="tabSelectedAddress" itemsContainer="addressDc"
+                                placeholder="Select Default" minWidth="10em"/>
+                        <!--            <simplePagination id="pagination" dataLoader="addressesDl"/>-->
+                    </hbox>
+                    <dataGrid id="addressesDataGrid2"
+                              width="100%"
+                              minHeight="20em"
+                              dataContainer="addressDc"
+                              columnReorderingAllowed="true">
+                        <actions>
+                            <action id="create" type="list_create">
+                                <properties>
+                                    <property name="openMode" value="DIALOG"/>
+                                </properties>
+                            </action>
+                            <action id="edit" type="list_edit">
+                                <properties>
+                                    <property name="openMode" value="DIALOG"/>
+                                </properties>
+                            </action>
+                            <action id="remove" type="list_remove"/>
+                        </actions>
+                        <columns resizable="true">
+                            <column property="address1"/>
+                            <column property="address2"/>
+                            <column property="isDefaultTrue"/>
+                            <column property="postcode"/>
+                            <column property="telephone"/>
+                            <column property="fax"/>
+                        </columns>
+                    </dataGrid>
+                </vbox>
+            </tab>
+            <tab id="contactTab" label="Contact">
+                <vbox>
+                    <hbox id="buttonsContactPanel" classNames="buttons-panel">
+                        <button id="createContactBtn" action="contactsDataGrid.create"/>
+                        <button id="editContactBtn" action="contactsDataGrid.edit"/>
+                        <button id="removeContactBtn" action="contactsDataGrid.remove"/>
+                        <select id="selectedContact" itemsContainer="contactDc"
+                                placeholder="Select Default" minWidth="10em"/>
+                        <!--                        <simplePagination id="pagination" dataLoader="contactsDl"/>-->
+                    </hbox>
+                    <dataGrid id="contactsDataGrid"
+                              width="100%"
+                              minHeight="20em"
+                              dataContainer="contactDc"
+                              columnReorderingAllowed="true">
+                        <actions>
+                            <action id="create" type="list_create">
+                                <properties>
+                                    <property name="openMode" value="DIALOG"/>
+                                </properties>
+                            </action>
+                            <action id="edit" type="list_edit">
+                                <properties>
+                                    <property name="openMode" value="DIALOG"/>
+                                </properties>
+                            </action>
+                            <action id="remove" type="list_remove"/>
+                        </actions>
+                        <columns resizable="true">
+                            <column property="title"/>
+                            <column property="firstName"/>
+                            <column property="lastName"/>
+                        </columns>
+                    </dataGrid>
+                </vbox>
+            </tab>
+            <tab id="marketingNotesTab" label="Marketing/Notes">
+                <vbox>
+                    <hbox id="buttonsNotesPanel" classNames="buttons-panel">
+                        <button id="createNotesBtn" action="marketingNotesDataGrid.create"/>
+                        <button id="editNotesBtn" action="marketingNotesDataGrid.edit"/>
+                        <button id="removeNotesBtn" action="marketingNotesDataGrid.remove"/>
+                        <!--                        <simplePagination id="paginationMarketingNotes" dataLoader="marketingNotesDl"/>-->
+                    </hbox>
+                    <dataGrid id="marketingNotesDataGrid"
+                              width="100%"
+                              minHeight="20em"
+                              dataContainer="marketingNotesDc"
+                              columnReorderingAllowed="true">
+                        <actions>
+                            <action id="create" type="list_create">
+                                <properties>
+                                    <property name="openMode" value="DIALOG"/>
+                                </properties>
+                            </action>
+                            <action id="edit" type="list_edit">
+                                <properties>
+                                    <property name="openMode" value="DIALOG"/>
+                                </properties>
+                            </action>
+                            <action id="remove" type="list_remove"/>
+                        </actions>
+                        <columns resizable="true">
+                            <column property="title"/>
+                            <column property="notes"/>
+                        </columns>
+                    </dataGrid>
+                </vbox>
+            </tab>
+            <tab id="documentTab" label="Document">
+                <vbox>
+                    <hbox id="buttonsDocumentPanel" classNames="buttons-panel">
+                        <button id="documentCreateBtn" action="documentsDataGrid.create"/>
+                        <button id="documentEditBtn" action="documentsDataGrid.edit"/>
+                        <button id="documentRemoveBtn" action="documentsDataGrid.remove"/>
+                        <!--                        <simplePagination id="pagination" dataLoader="documentsDl"/>-->
+                    </hbox>
+                    <dataGrid id="documentsDataGrid"
+                              width="100%"
+                              minHeight="20em"
+                              dataContainer="documentDc"
+                              columnReorderingAllowed="true">
+                        <actions>
+                            <action id="create" type="list_create">
+                                <properties>
+                                    <property name="openMode" value="DIALOG"/>
+                                </properties>
+                            </action>
+                            <action id="edit" type="list_edit">
+                                <properties>
+                                    <property name="openMode" value="DIALOG"/>
+                                </properties>
+                            </action>
+                            <action id="remove" type="list_remove"/>
+                        </actions>
+                        <columns resizable="true">
+                            <column property="file"/>
+                        </columns>
+                    </dataGrid>
+                </vbox>
+            </tab>
+        </tabSheet>
+        <hbox id="detailActions">
+            <button id="saveAndCloseBtn" action="saveAction"/>
+            <button id="closeBtn" action="closeAction"/>
+        </hbox>
+    </layout>
+</view>
